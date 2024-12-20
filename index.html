@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+        }
+        #chat-container {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container"></div>
+    
+    <script type="module">
+        import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+        createChat({
+            webhookUrl: 'http://localhost:5678/webhook/e29e3a1c-9b1d-422c-ad91-8052192a3c84/chat',
+            mode: 'window',
+            target: '#chat-container',
+            chatInputKey: 'chatInput',
+            chatSessionKey: 'sessionId',
+            showWelcomeScreen: true,
+            initialMessages: [
+                '👋 ¡Bienvenido a Guanaguana Enterprise!',
+                '¿En qué puedo ayudarte hoy?'
+            ],
+            i18n: {
+                en: {
+                    title: 'Guanaguana Enterprise',
+                    subtitle: '¿Cómo podemos ayudarte hoy?',
+                    inputPlaceholder: 'Escribe tu mensaje...',
+                    getStarted: 'Iniciar conversación'
+                }
+            }
+        });
+    </script>
+</body>
+</html>
